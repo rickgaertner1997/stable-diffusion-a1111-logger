@@ -139,10 +139,12 @@ class Script(scripts.Script):
     def ui(self, is_img2img):
         textbox = gr.Textbox(
             label="Hydrus Logger",
-            value="copyright:, character:"
+            value="copyright:, character:",
+            elem_classes=["prompt", "autocomplete"]  
         )
         return [textbox]
 
     def process(self, p, textbox):
         if textbox and textbox.strip():
+
             p.extra_generation_params["Hydrus Extra Tags"] = textbox.strip()
