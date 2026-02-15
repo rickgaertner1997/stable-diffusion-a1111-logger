@@ -88,9 +88,7 @@ def format_tag(tag: str) -> str | None:
 
 def log_manual_save(params):
     try:
-        image_path = params.filename
-        base, _ = os.path.splitext(image_path)
-        log_path = base + ".txt"
+        log_path = params.filename + ".txt"
 
         raw_prompt = getattr(params.p, "prompt", "")
 
@@ -148,3 +146,4 @@ class Script(scripts.Script):
         if textbox and textbox.strip():
 
             p.extra_generation_params["Hydrus Extra Tags"] = textbox.strip()
+
